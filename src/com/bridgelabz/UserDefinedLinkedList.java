@@ -26,10 +26,11 @@ public class UserDefinedLinkedList {
     public void add(Node newNode){
         if (this.head == null) {
             this.head = newNode;
-            this.tail = this.head;
-        } else {
-            this.tail.setNext(newNode);
             this.tail = newNode;
+        } else {
+            Node temp = this.head;
+            this.head = newNode;
+            this.head.setNext(temp);
         }
     }
 
