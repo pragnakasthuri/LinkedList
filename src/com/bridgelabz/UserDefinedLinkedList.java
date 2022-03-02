@@ -1,7 +1,7 @@
 package com.bridgelabz;
 
 /**
- * Ability to create Linked List by adding 30 and 56 to 70
+ * Ability to create Linked List by appending 30 and 70 to 56
  */
 
 public class UserDefinedLinkedList {
@@ -23,7 +23,7 @@ public class UserDefinedLinkedList {
     /**
      * @param newNode
      */
-    public void add(Node newNode){
+    public void append(Node newNode){
         if (this.head == null) {
             this.head = newNode;
             this.tail = this.head;
@@ -35,13 +35,13 @@ public class UserDefinedLinkedList {
 
     public static void main(String[] args) {
         UserDefinedLinkedList userDefinedLinkedList = new UserDefinedLinkedList();
-        Node head = new Node(70);
+        Node head = new Node(56);
         Node middle = new Node(30);
-        Node tail = new Node(56);
+        Node tail = new Node(70);
 
-        userDefinedLinkedList.add(head);
-        userDefinedLinkedList.add(middle);
-        userDefinedLinkedList.add(tail);
+        userDefinedLinkedList.append(head);
+        userDefinedLinkedList.append(middle);
+        userDefinedLinkedList.append(tail);
 
         userDefinedLinkedList.display();
     }
