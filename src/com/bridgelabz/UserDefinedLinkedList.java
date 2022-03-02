@@ -12,11 +12,24 @@ public class UserDefinedLinkedList {
      * Traverse through the node and prints the data
      */
     public void display() {
-        Node node = this.tail;
+        Node node = this.head;
         System.out.print("Linked List Sequence: ");
         while (node != null) {
             System.out.print(node.getData() + (node.getNext() == null ? "" : "->"));
             node = node.getNext();
+        }
+    }
+
+    /**
+     * @param newNode
+     */
+    public void add(Node newNode){
+        if (this.head == null) {
+            this.head = newNode;
+            this.tail = this.head;
+        } else {
+            this.tail.setNext(newNode);
+            this.tail = newNode;
         }
     }
 
@@ -25,11 +38,11 @@ public class UserDefinedLinkedList {
         Node head = new Node(70);
         Node middle = new Node(30);
         Node tail = new Node(56);
-        
-        tail.setNext(middle);
-        middle.setNext(head);
 
-        userDefinedLinkedList.tail = tail;
+        userDefinedLinkedList.add(head);
+        userDefinedLinkedList.add(middle);
+        userDefinedLinkedList.add(tail);
+
         userDefinedLinkedList.display();
     }
 }
