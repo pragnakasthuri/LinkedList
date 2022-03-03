@@ -1,7 +1,7 @@
 package com.bridgelabz;
 
 /**
- * Ability to search Linked List to find node with desired data
+ * Ability to delete the element from last
  */
 
 public class UserDefinedLinkedList {
@@ -97,27 +97,6 @@ public class UserDefinedLinkedList {
     }
 
     /**
-     * Creating search method to search the desired element
-     * @param data
-     * @return address of node
-     */
-    public Node searchData(int data) {
-        if(this.head == null){
-            return null;
-        }
-
-        Node tempNode = this.head;
-        while(tempNode != null) {
-            if (tempNode.getData().equals(data)) {
-                return tempNode;
-            }
-            tempNode = tempNode.getNext();
-        }
-        return null;
-    }
-
-
-    /**
      * Main method for manipulating Linked list
      * @param args - Default Java param (Not used)
      */
@@ -128,8 +107,8 @@ public class UserDefinedLinkedList {
          * 2.Creating 3 nodes with 56, 70 and inserting 30 in the middle
          * 3.Adding nodes to linked list
          * 4.Displaying the linked list after adding the nodes
-         * 5.Calling the popLat method to delete the last element from the linked list
-         * 6.calling display method with object reference to display the linked list after deleting
+         * 5.Calling the popLast method to delete the last element from linked list
+         * 6.Displaying the linked list after deleting the element from last
          */
 
         /**
@@ -155,12 +134,16 @@ public class UserDefinedLinkedList {
          */
         userDefinedLinkedList.display();
         /**
-         * 5.Calling the searchData method to find the node with the element searched
+         * 5.Calling the popLast method to delete the last element from linked list
          */
-        System.out.println();
-        System.out.println("Element found in the linked list at: " +userDefinedLinkedList.searchData(30));
+        userDefinedLinkedList.popLast();
+        /**
+         * 6.Displaying the linked list after deleting the element from last
+         */
+        userDefinedLinkedList.display();
     }
 }
+
 
 
 
