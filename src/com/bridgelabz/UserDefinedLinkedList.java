@@ -1,7 +1,8 @@
 package com.bridgelabz;
 
 /**
- * Ability to insert 40 after 30 int eh linked list sequence
+ * Ability to delete 40 from the linked list sequence and
+ * display the size of linked list
  */
 
 public class UserDefinedLinkedList {
@@ -128,9 +129,45 @@ public class UserDefinedLinkedList {
         return null;
     }
 
+    /**
+     * Creating the deleteAnyElement method to delete any element passed as argument
+     * @param data
+     */
+    public void deleteAnyElement(int data){
+        Node tempNode = this.head;
+        Node prev = null;
 
+        if(tempNode != null && tempNode.getData().equals(data)) {
+            this.head = tempNode.getNext();
+            return;
+        }
+        while ((tempNode != null && !tempNode.getData().equals(data))) {
+            prev = tempNode;
+            tempNode = tempNode.getNext();
+        }
+        if(tempNode == null)
+            return;
 
+        prev.setNext(tempNode.getNext());
+    }
 
+    /**
+     * Creating the size method to know the size of linked list
+     * @return - The size of the linked list
+     */
+    public int size() {
+        int size = 0;
+        if (this.head == null) {
+            return size;
+        }
+        size++;
+        Node temp = this.head;
+        while (temp.getNext() != null) {
+            size++;
+            temp = temp.getNext();
+        }
+        return size;
+    }
     /**
      * Main method for manipulating Linked list
      * @param args - Default Java param (Not used)
@@ -144,6 +181,9 @@ public class UserDefinedLinkedList {
          * 4.Displaying the linked list after adding the nodes
          * 5.Calling the insertAfter method to insert 40 after 30
          * 6.Displaying the linked list after inserting 40 after 30
+         * 7.Calling the deleteAnyElement method by passing the desired element as argument
+         * 8.Displaying after deleting 40 from the linked list sequence
+         * 9.Displaying the size of linked list after deleting the element
          */
 
         /**
@@ -176,7 +216,19 @@ public class UserDefinedLinkedList {
          * 6.Displaying the linked list after inserting 40 after 30
          */
         userDefinedLinkedList.display();
-
+        /**
+         * 7.Calling the deleteAnyElement method by passing the desired element as argument
+         */
+        userDefinedLinkedList.deleteAnyElement(40);
+        /**
+         * 8.Displaying after deleting 40 from the linked list sequence
+         */
+        userDefinedLinkedList.display();
+        /**
+         * 9.Displaying the size of linked list after deleting the element
+         */
+        System.out.println();
+        System.out.println("Size: "+userDefinedLinkedList.size());
     }
 }
 
