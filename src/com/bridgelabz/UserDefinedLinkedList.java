@@ -1,7 +1,7 @@
 package com.bridgelabz;
 
 /**
- * Ability to create Linked List by appending 30 and 70 to 56
+ * Ability to insert 30 between 56 and 70
  */
 
 public class UserDefinedLinkedList {
@@ -21,28 +21,51 @@ public class UserDefinedLinkedList {
     }
 
     /**
+     * Creating insert method to insert one node in the middle of two nodes
      * @param newNode
      */
-    public void append(Node newNode){
+    public void insert(Node newNode){
         if (this.head == null) {
             this.head = newNode;
-            this.tail = this.head;
-        } else {
-            this.tail.setNext(newNode);
-            this.tail = newNode;
         }
+        Node tempNode = head.getNext();
+        head.setNext(newNode);
+        newNode.setNext(tempNode);
     }
 
+    /**
+     * Main method for manipulating Linked list
+     * @param args - Default Java param (Not used)
+     */
     public static void main(String[] args) {
+        /**
+         * PROCEDURE
+         * 1. Creating user Defined linked list
+         * 2.creating 3 nodes with 56, 70 and inserting 30 in the middle
+         * 3.Adding nodes to linked list
+         * 4.calling display method with object reference
+         */
+        /**
+         * 1. Creating user Defined linked list
+         */
         UserDefinedLinkedList userDefinedLinkedList = new UserDefinedLinkedList();
+
+        /**
+         * 2.creating 3 nodes with 56, 70 and inserting 30 in the middle
+         */
         Node head = new Node(56);
-        Node middle = new Node(30);
-        Node tail = new Node(70);
+        Node middle = new Node(70);
+        Node tail = new Node(30);
 
-        userDefinedLinkedList.append(head);
-        userDefinedLinkedList.append(middle);
-        userDefinedLinkedList.append(tail);
-
+        /**
+         * 3.Adding nodes to linked list
+         */
+        userDefinedLinkedList.insert(head);
+        userDefinedLinkedList.insert(middle);
+        userDefinedLinkedList.insert(tail);
+        /**
+         * 4.calling display method with object reference
+         */
         userDefinedLinkedList.display();
     }
 }
