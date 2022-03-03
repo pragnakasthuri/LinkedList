@@ -154,7 +154,7 @@ public class UserDefinedLinkedList {
          */
         userDefinedLinkedList.display();
         /**
-         * 5.Calling the searchData method to find the node with the element searched
+         * 5.Calling searchData method to find the node with the element searched
          */
         System.out.println();
         System.out.println("Element found in the linked list at: " +userDefinedLinkedList.searchData(30));
