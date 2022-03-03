@@ -1,7 +1,7 @@
 package com.bridgelabz;
 
 /**
- * Ability to search Linked List to find node with desired data
+ * Ability to insert 40 after 30 int eh linked list sequence
  */
 
 public class UserDefinedLinkedList {
@@ -67,6 +67,18 @@ public class UserDefinedLinkedList {
         newNode.setNext(tempNode);
     }
 
+    public void insertAfter(Node newNode, int data) {
+        if (this.head == null) {
+            return;
+        }
+        Node temp = this.head;
+        while(!temp.getData().equals(data)) {
+            temp = temp.getNext();
+        }
+        newNode.setNext(temp.getNext());
+        temp.setNext(newNode);
+    }
+
     /**
      * Creating the pop method to delete the first element in the linked list
      */
@@ -117,6 +129,8 @@ public class UserDefinedLinkedList {
     }
 
 
+
+
     /**
      * Main method for manipulating Linked list
      * @param args - Default Java param (Not used)
@@ -128,8 +142,8 @@ public class UserDefinedLinkedList {
          * 2.Creating 3 nodes with 56, 70 and inserting 30 in the middle
          * 3.Adding nodes to linked list
          * 4.Displaying the linked list after adding the nodes
-         * 5.Calling the popLat method to delete the last element from the linked list
-         * 6.calling display method with object reference to display the linked list after deleting
+         * 5.Calling the insertAfter method to insert 40 after 30
+         * 6.Displaying the linked list after inserting 40 after 30
          */
 
         /**
@@ -155,10 +169,14 @@ public class UserDefinedLinkedList {
          */
         userDefinedLinkedList.display();
         /**
-         * 5.Calling the searchData method to find the node with the element searched
+         * 5.Calling the insertAfter method to insert 40 after 30
          */
-        System.out.println();
-        System.out.println("Element found in the linked list at: " +userDefinedLinkedList.searchData(30));
+        userDefinedLinkedList.insertAfter(new Node(40), 30);
+        /**
+         * 6.Displaying the linked list after inserting 40 after 30
+         */
+        userDefinedLinkedList.display();
+
     }
 }
 
