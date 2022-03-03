@@ -1,7 +1,7 @@
 package com.bridgelabz;
 
 /**
- * Ability to delete the first element from the linked list
+ * Ability to search Linked List to find node with desired data
  */
 
 public class UserDefinedLinkedList {
@@ -97,6 +97,27 @@ public class UserDefinedLinkedList {
     }
 
     /**
+     * Creating search method to search the desired element
+     * @param data
+     * @return address of node
+     */
+    public Node searchData(int data) {
+        if(this.head == null){
+            return null;
+        }
+
+        Node tempNode = this.head;
+        while(tempNode != null) {
+            if (tempNode.getData().equals(data)) {
+                return tempNode;
+            }
+            tempNode = tempNode.getNext();
+        }
+        return null;
+    }
+
+
+    /**
      * Main method for manipulating Linked list
      * @param args - Default Java param (Not used)
      */
@@ -134,13 +155,10 @@ public class UserDefinedLinkedList {
          */
         userDefinedLinkedList.display();
         /**
-         * 5.Calling the popLat method to delete the last element from the linked list
+         * 5.Calling the searchData method to find the node with the element searched
          */
-        userDefinedLinkedList.popLast();
-        /**
-         * 6.calling display method with object reference to display the linked list after deleting
-         */
-        userDefinedLinkedList.display();
+        System.out.println();
+        System.out.println("Element found in the linked list at: " +userDefinedLinkedList.searchData(30));
     }
 }
 
