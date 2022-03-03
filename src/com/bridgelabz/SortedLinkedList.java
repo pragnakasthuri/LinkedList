@@ -1,6 +1,6 @@
 package com.bridgelabz;
 
-public class UserDefinedLinkedList {
+public class SortedLinkedList {
     /**
      * Initializing head and tail variables of type Node
      */
@@ -25,13 +25,26 @@ public class UserDefinedLinkedList {
      * @param newNode
      */
     public void add(Node newNode) {
-        if (this.head == null) {
+        Node tempNode;
+
+        /**
+        * Special case for head node
+        */
+        if (this.head == null || this.head.getData().compareTo(newNode.getData()) > 0) {
+            newNode.setNext(this.head);
             this.head = newNode;
-            this.tail = newNode;
-        } else {
-            Node temp = this.head;
-            this.head = newNode;
-            this.head.setNext(temp);
+        }
+        else {
+            /**
+            Locate the node before point of insertion.
+             */
+            tempNode = head;
+            while (tempNode.getNext() != null
+                    && tempNode.getNext().getData().compareTo(newNode.getData()) < 0)
+                tempNode = tempNode.getNext();
+
+            newNode.setNext(tempNode.getNext());
+            tempNode.setNext(newNode);
         }
     }
 
@@ -48,7 +61,6 @@ public class UserDefinedLinkedList {
             this.tail = newNode;
         }
     }
-
 
     /**
      * Creating insert method to insert one node in the middle
@@ -175,55 +187,32 @@ public class UserDefinedLinkedList {
          * 3.Adding nodes to linked list
          * 4.Displaying the linked list after adding the nodes
          * 5.Calling the insertAfter method to insert 40 after 30
-         * 6.Displaying the linked list after inserting 40 after 30
-         * 7.Calling the deleteAnyElement method by passing the desired element as argument
-         * 8.Displaying after deleting 40 from the linked list sequence
-         * 9.Displaying the size of linked list after deleting the element
          */
 
         /**
          * 1. Creating User Defined linked list
          */
-        UserDefinedLinkedList userDefinedLinkedList = new UserDefinedLinkedList();
+        SortedLinkedList userDefinedLinkedList = new SortedLinkedList();
 
         /**
-         * 2.creating 3 nodes with 56, 70 and inserting 30 in the middle
+         * 2.creating 4 nodes with 56,30,40 and 70
          */
-        Node head = new Node(56);
-        Node middle = new Node(30);
-        Node tail = new Node(40);
+        Node<Integer> head = new Node(56);
+        Node<Integer> middle1 = new Node(30);
+        Node<Integer> middle2 = new Node(40);
+        Node<Integer> tail = new Node(70);
 
         /**
          * 3.Adding nodes to linked list
          */
         userDefinedLinkedList.add(head);
-        userDefinedLinkedList.add(middle);
+        userDefinedLinkedList.add(middle1);
+        userDefinedLinkedList.add(middle2);
         userDefinedLinkedList.add(tail);
         /**
          * 4.Displaying the linked list after adding the nodes
          */
         userDefinedLinkedList.display();
-        /**
-         * 5.Calling the insertAfter method to insert 40 after 30
-         */
-        userDefinedLinkedList.insertAfter(new Node(40), 30);
-        /**
-         * 6.Displaying the linked list after inserting 40 after 30
-         */
-        userDefinedLinkedList.display();
-        /**
-         * 7.Calling the deleteAnyElement method by passing the desired element as argument
-         */
-        userDefinedLinkedList.deleteAnyElement(40);
-        /**
-         * 8.Displaying after deleting 40 from the linked list sequence
-         */
-        userDefinedLinkedList.display();
-        /**
-         * 9.Displaying the size of linked list after deleting the element
-         */
-        System.out.println();
-        System.out.println("Size: "+userDefinedLinkedList.size());
     }
 }
 

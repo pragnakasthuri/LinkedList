@@ -5,7 +5,7 @@ package com.bridgelabz;
  * @param <D>
  */
 
-public class Node<D> {
+public class Node<D extends Comparable> {
     private D data;
     private Node next;
 
