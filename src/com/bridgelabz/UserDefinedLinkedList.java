@@ -128,8 +128,7 @@ public class UserDefinedLinkedList {
          * 2.Creating 3 nodes with 56, 70 and inserting 30 in the middle
          * 3.Adding nodes to linked list
          * 4.Displaying the linked list after adding the nodes
-         * 5.Calling the popLat method to delete the last element from the linked list
-         * 6.calling display method with object reference to display the linked list after deleting
+         * 5.Calling the searchData method to find the node with the element searched
          */
 
         /**
