@@ -18,7 +18,7 @@ public class Node<D> {
     }
 
     /**
-     * Declaring getter and setter methods
+     * Declaring getter and setter methods for data and next
      */
 
     public D getData() {

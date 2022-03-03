@@ -6,7 +6,7 @@ package com.bridgelabz;
 
 public class UserDefinedLinkedList {
     /**
-     * Initializing head and tail variables of Node type
+     * Initializing head and tail variables of type Node
      */
     private Node head;
     private Node tail;
@@ -16,6 +16,7 @@ public class UserDefinedLinkedList {
      */
     public void display() {
         Node node = this.head;
+        System.out.println();
         System.out.print("Linked List Sequence: ");
         while (node != null) {
             System.out.print(node.getData() + (node.getNext() == null ? "" : "->"));
@@ -78,17 +79,35 @@ public class UserDefinedLinkedList {
     }
 
     /**
+     * Creating popLast method to delete last element from the linked list
+     */
+    public void popLast(){
+        if (this.head == null) {
+            return;
+        }
+        if (this.head.getNext() == null) {
+            return;
+        }
+        Node tempNode = this.head;
+        while(tempNode.getNext().getNext() != null) {
+            tempNode = tempNode.getNext();
+        }
+        tempNode.setNext(null);
+        this.tail = tempNode;
+    }
+
+    /**
      * Main method for manipulating Linked list
      * @param args - Default Java param (Not used)
      */
     public static void main(String[] args) {
         /**
          * PROCEDURE
-         * 1. Creating user Defined linked list
-         * 2.creating 3 nodes with 56, 70 and inserting 30 in the middle
+         * 1.Creating user Defined linked list
+         * 2.Creating 3 nodes with 56, 70 and inserting 30 in the middle
          * 3.Adding nodes to linked list
          * 4.Displaying the linked list after adding the nodes
-         * 5.Calling the pop method to delete the first element from the linked list
+         * 5.Calling the popLat method to delete the last element from the linked list
          * 6.calling display method with object reference to display the linked list after deleting
          */
 
@@ -115,9 +134,9 @@ public class UserDefinedLinkedList {
          */
         userDefinedLinkedList.display();
         /**
-         * 5.Calling the pop method to delete the first element from the linked list
+         * 5.Calling the popLat method to delete the last element from the linked list
          */
-        userDefinedLinkedList.pop();
+        userDefinedLinkedList.popLast();
         /**
          * 6.calling display method with object reference to display the linked list after deleting
          */
