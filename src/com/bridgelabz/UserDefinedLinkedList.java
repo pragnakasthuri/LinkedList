@@ -22,7 +22,7 @@ public class UserDefinedLinkedList {
 
     /**
      * Logic for adding nodes to linked list
-     * @param newNode
+     * @param newNode - add this new node to the existing node
      */
     public void add(Node newNode) {
         if (this.head == null) {
@@ -37,7 +37,7 @@ public class UserDefinedLinkedList {
 
     /**
      * Logic for appending the nodes to linked list
-     * @param newNode
+     * @param newNode - append this to the existing node
      */
     public void append(Node newNode){
         if (this.head == null) {
@@ -52,7 +52,7 @@ public class UserDefinedLinkedList {
 
     /**
      * Creating insert method to insert one node in the middle
-     * @param newNode
+     * @param newNode - Insert at this node
      */
     public void insert(Node newNode){
         if (this.head == null) {
@@ -63,6 +63,11 @@ public class UserDefinedLinkedList {
         newNode.setNext(tempNode);
     }
 
+    /**
+     * Creating this method to insert the specific data at specific location
+     * @param newNode -At which node you want to insert
+     * @param data - Data you want to insert
+     */
     public void insertAfter(Node newNode, int data) {
         if (this.head == null) {
             return;
@@ -106,7 +111,7 @@ public class UserDefinedLinkedList {
 
     /**
      * Creating search method to search the desired element
-     * @param data
+     * @param data - which date you want to search
      * @return address of node
      */
     public Node searchData(int data) {
@@ -126,7 +131,7 @@ public class UserDefinedLinkedList {
 
     /**
      * Creating the deleteAnyElement method to delete any element passed as argument
-     * @param data
+     * @param data - which data you want to delete
      */
     public void deleteAnyElement(int data){
         Node tempNode = this.head;
@@ -179,6 +184,7 @@ public class UserDefinedLinkedList {
          * 7.Calling the deleteAnyElement method by passing the desired element as argument
          * 8.Displaying after deleting 40 from the linked list sequence
          * 9.Displaying the size of linked list after deleting the element
+         * 10. Searching for an element
          */
 
         /**
@@ -199,6 +205,7 @@ public class UserDefinedLinkedList {
         userDefinedLinkedList.add(head);
         userDefinedLinkedList.add(middle);
         userDefinedLinkedList.add(tail);
+
         /**
          * 4.Displaying the linked list after adding the nodes
          */
@@ -224,6 +231,11 @@ public class UserDefinedLinkedList {
          */
         System.out.println();
         System.out.println("Size: "+userDefinedLinkedList.size());
+        /**
+         * 10. Searching for an element
+         * it returns same object if such element found otherwise null
+         */
+        System.out.println("Element found in the linked list : "+userDefinedLinkedList.searchData(90));
     }
 }
 

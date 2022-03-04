@@ -36,4 +36,11 @@ public class Node<D extends Comparable> {
     public void setNext(Node next) {
         this.next = next;
     }
+
+    @Override
+    public String toString() {
+        return "Node{" +
+                "data=" + data +
+                '}';
+    }
 }
